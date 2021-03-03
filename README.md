@@ -1,6 +1,7 @@
 ## Pico SuperKey Board
 
-This project contains the code for a simple, single key keyboard based on the [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/).
+This project contains the code for a simple, single key keyboard based on the [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/). Short the contacts, get a key press on a USB HID keyboard.
+
 Project goals:
 * Add a key on my desk for the missing super (Windows) key on my IBM Model M keyboard.
 * Investigate USB device support on the Pico.

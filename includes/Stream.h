@@ -1,5 +1,4 @@
 /*
-  
   Stream.h - Base class for character-based streams
              Minimum stand in for functionality
   Copyright (c) 2020 guruthree.  All right reserved.
