@@ -2,7 +2,7 @@
 
 This project contains the code for a simple, single key keyboard based on the [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/).
 Project goals:
-* Add a key on my desk for the missing super (Windows) key on my IBM Model M keyboard
+* Add a key on my desk for the missing super (Windows) key on my IBM Model M keyboard.
 * Investigate USB device support on the Pico.
 * Find an easy way to emulate a USB HID device in C/C++ on the Pico.
 The last goal was the most important for me as the current [composite HID example](https://github.com/raspberrypi/pico-examples/tree/3617ade198cfdfca24c047f02a0d6948c1c8fdbf/usb/device/dev_hid_composite) code in the SDK is essentially identical to the TinyUSB example and somewhat lacking in comments to elucidate what does what.
