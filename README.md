@@ -37,7 +37,7 @@ Further work... I don't see why the rest of the Adafruit TinyUSB library wouldn'
 ### Usage
 
 0. Have a working Raspberry Pi Pico C SDK setup.
-1. Clone/download the repository. Don't forget to `submodule init` if needed.
+1. Clone/download the repository. Don't forget to run `git submodule update --init`.
 2. Ensure that there is a symbolic link to [`pico_sdk_import.cmake`](https://github.com/raspberrypi/pico-examples/blob/13f89f628258b398ed07cf715ee3432e16e4e76a/pico_sdk_import.cmake) from the Pico C SDK. (If a symbolic link isn't an option, just copy the file.)
 3. Create a build directory, `cd` to it, and run `cmake ../`. (Or your build system equivalents.)
 4. Build by running `make`. (Or your build system equivalent.)
