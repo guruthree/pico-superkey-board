@@ -10,8 +10,9 @@ pico_sdk_init()
 add_executable(pico-superkey-board
     pico-superkey-board.cpp
     TinyUSB_Mouse_and_Keyboard/TinyUSB_Mouse_and_Keyboard.cpp
-    Adafruit_TinyUSB_Arduino/src/Adafruit_USBD_HID.cpp
-    Adafruit_TinyUSB_ArduinoCore/Adafruit_USBD_Device.cpp
+    Adafruit_TinyUSB_Arduino/src/arduino/hid/Adafruit_USBD_HID.cpp
+    Adafruit_TinyUSB_Arduino/src/arduino/Adafruit_USBD_Device.cpp
+    Adafruit_TinyUSB_Arduino/src/arduino/ports/rp2040/Adafruit_TinyUSB_rp2040.cpp
     Print.cpp
 )
 
@@ -27,9 +28,10 @@ pico_add_extra_outputs(pico-superkey-board)
 
 add_definitions(-DUSE_TINYUSB)
 add_definitions(-DUSB_PRODUCT="Pico Keyboard")
+add_definitions(-DARDUINO_ARCH_RP2040)
+add_definitions(-DCFG_TUSB_CONFIG_FILE="includes/tusb_config.h")
 
 include_directories(includes
     TinyUSB_Mouse_and_Keyboard
     Adafruit_TinyUSB_Arduino/src
-    Adafruit_TinyUSB_ArduinoCore
 )

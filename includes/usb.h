@@ -24,39 +24,6 @@
  *
  */
 
-// Code to finish implementing Adafruit USB core
-#include "pico/unique_id.h"
-#include "Adafruit_TinyUSB_ArduinoCore/Adafruit_TinyUSB_Core.h"
-
-// Need to return a unique serial number, or really unique flash ID for the Pico
-// Needed for implementation of Adafruit USB core
-uint8_t Adafruit_USBD_Device::getSerialDescriptor(uint16_t* serial_str)
-{
-    pico_unique_board_id_t board_id;
-    pico_get_unique_board_id(&board_id);
-
-    // each byte of the ID is two characters in hexadecimal
-    uint8_t chr_count = PICO_UNIQUE_BOARD_ID_SIZE_BYTES*2;
-
-    // Cap at max char in USB protocol
-    if (chr_count > 31) chr_count = 31;
-
-    // Convert int to hex characters
-    char serial[chr_count];
-    uint8_t index = 0;
-    for (uint8_t i = 0; i < PICO_UNIQUE_BOARD_ID_SIZE_BYTES && index < chr_count; i++) {
-        index += sprintf(&serial[index], "%02x", board_id.id[i]);
-    }
-
-    // UTF8->16 conversion
-    for (uint8_t i = 0; i < chr_count; i++) {
-        serial_str[i] = serial[i];
-    }
-
-    return chr_count;
-}
-
-
 // From the dev_hid_composite example in the pico sdk/TinyUSB library
 // The LED related items aren't needed, just a useful output to make sure the
 // Pico has been recognized

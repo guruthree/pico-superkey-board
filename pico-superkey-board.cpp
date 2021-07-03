@@ -28,6 +28,8 @@
 #include "pico/binary_info.h"
 
 #include "includes/usb.h"
+#include "includes/Adafruit_USBD_CDC-stub.h"
+#include "Adafruit_TinyUSB_Arduino/src/Adafruit_TinyUSB.h"
 #include "TinyUSB_Mouse_and_Keyboard/TinyUSB_Mouse_and_Keyboard.h"
 
 // GPIO pin the keyswitch is on
@@ -36,21 +38,22 @@
 // Debounce delay (ms)
 #define DEBOUNCE_DELAY 5
 
-// USB events need to be processed regularly, this has to be on a timer as
-// otherwise Keyboard.begin() and Mouse.begin() will hang waiting for
-// the device to be recognized
+// This function is called by a timer to change the on-board LED to flash
+// differently depending on USB state
 static bool loopTask(repeating_timer_t *rt){
     led_blinking_task();
-    tud_task(); // TinyUSB device tasks
     return true;
 }
+
+// Adafruit TinyUSB instance
+extern Adafruit_USBD_Device USBDevice;
 
 int main() {
     bi_decl(bi_program_description("A single superkey keyboard"));
     bi_decl(bi_program_feature("USB HID Device"));
 
     board_init(); // Sets up the onboard LED as an output
-    tusb_init();  // Initialise TinyUSB
+    USBDevice.begin(); // Initialise Adafruit TinyUSB
 
     // Timer for regularly processing USB events
     struct repeating_timer timer;
