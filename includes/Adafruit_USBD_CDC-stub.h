@@ -1,5 +1,5 @@
 /*
-  Adafruit_USBD_CDC-stub.h - CDC devvice class stub for Adafruit TinyUSB
+  Adafruit_USBD_CDC-stub.h - CDC device class stub for Adafruit TinyUSB
                              Minimum stand in for functionality
   Copyright (c) 2021 guruthree.  All right reserved.
 
