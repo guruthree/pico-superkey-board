@@ -35,3 +35,14 @@ include_directories(includes
     TinyUSB_Mouse_and_Keyboard
     Adafruit_TinyUSB_Arduino/src
 )
+
+# remove Adafruit tinyusb library code so that only the pico-sdk tinyusb code is used
+# to restore, cd Adafruit_TinyUSB_Arduino/ && git checkout HEAD .
+file(REMOVE Adafruit_TinyUSB_Arduino/src/tusb.c)
+file(REMOVE Adafruit_TinyUSB_Arduino/src/tusb.h)
+file(REMOVE Adafruit_TinyUSB_Arduino/src/tusb_option.h)
+file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/osal/)
+file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/portable/)
+file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/device/)
+file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/common/)
+file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/class/)
