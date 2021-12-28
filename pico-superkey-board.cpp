@@ -46,14 +46,14 @@ static bool loopTask(repeating_timer_t *rt){
 }
 
 // Adafruit TinyUSB instance
-extern Adafruit_USBD_Device USBDevice;
+extern Adafruit_USBD_Device TinyUSBDevice;
 
 int main() {
     bi_decl(bi_program_description("A single superkey keyboard"));
     bi_decl(bi_program_feature("USB HID Device"));
 
     board_init(); // Sets up the onboard LED as an output
-    USBDevice.begin(); // Initialise Adafruit TinyUSB
+    TinyUSBDevice.begin(); // Initialise Adafruit TinyUSB
 
     // Timer for regularly processing USB events
     struct repeating_timer timer;
